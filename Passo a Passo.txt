@@ -11,4 +11,7 @@ dotnet new sln --name Pokedex
 /* Criar o projeto MVC */
 dotnet new mvc --name Pokedex -f net6.0
 
-
+/* Adicionar o Git o projeto e enviar ao GitHub */
+git add .
+git commit -m "Criada a solução e o projeto MVC da Pokedex"
+git push
