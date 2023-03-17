@@ -17,12 +17,19 @@ public class HomeController : Controller
         _service = service;
     }
 
-    public IActionResult Index()
+    public IActionResult Index(string tipo)
     {
-        var pokemons = _service.GetPokemons();
-        ViewData["Tipos"] = _service.GetTipos();
-        return View(pokemons);
+        var pokes = _pokeService.GetPokedexDto();
+        ViewData["filter"] = string.IsNullOrEmpty(tipo) ? "all" : tipo;
+        return View(pokes);
     }
+
+    public IActionResult Details(int Numero)
+    {
+        var pokemon = _pokeService.GetDetailedPokemon(Numero);
+        return View(pokemon);
+    }
+
     
 
     public IActionResult Privacy()
